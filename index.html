@@ -1,35 +1,95 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image and Text</title>
+    <title>Jólavinkur</title>
     <style>
         body {
-            background-color: black;
-            color: white;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            overflow: hidden;
         }
 
-        img {
+        header {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .action-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
             display: block;
-            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        iframe {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+        }
+
+        /* Snow Animation */
+        .snowflake {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: snowfall linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
         }
     </style>
 </head>
 <body>
-    <img src="14344841_10210390920751428_8621495313017748022_n.jpg" alt="Image">
-    <p>Gleymist smá í umræðunni að þetta samband Travis Kelce og Taylor Swift gæti gert mikið fyrir hana og hjálpað henni að ná til nýrra markhópa - 26. september 2023</p>
-    <BR>
-    <p>Nýbakað súrdeigs með morgunkaffinu og loksins RedZone í kvöld. Þvílíkur dagur!- 10. september 2023</p>
-    <BR>
-    <p>Ég hef séð skóflur á skurðgröfum sem eru minni en hrammarnir á fjármálaráðherra. - 31. ágúst 2023</p>
+
+    <header>
+        JÓHANN ÓLI, VILTU VITA HVER JÓLAVINUR ÞINN ER?
+    </header>
+
+    <a href="https://www.youtube.com/embed/BSRrzrQtmto?autoplay=1&controls=0&showinfo=0&autohide=1" class="action-link">Já</a>
+    <a href="https://www.imdb.com/title/tt0170016/?ref_=nv_sr_srsg_4_tt_6_nm_1_q_grinch" class="action-link">Nei</a>
+
+    <iframe
+        id="video-iframe"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+    <!-- Snowflakes Container -->
+    <div id="snowflakes-container"></div>
+
+    <script>
+        // Create snowflakes
+        const snowflakesContainer = document.getElementById('snowflakes-container');
+        for (let i = 0; i < 50; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            snowflakesContainer.appendChild(snowflake);
+        }
+    </script>
+
 </body>
 </html>
